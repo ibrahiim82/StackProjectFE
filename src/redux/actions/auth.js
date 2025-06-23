@@ -3,7 +3,7 @@ import { toast } from 'react-toastify'
 
 export const registerAction = (authData) => async(dispatch) => {
     try {
-        const {data} = await axios.post('https://stackprojectbe.onrender.com/register', authData)
+        const {data} = await axios.post(`${process.env.REACT_APP_API_URL}/register`, authData)
 
         dispatch({type:'REGISTER', payload: data})
 
@@ -18,7 +18,7 @@ export const registerAction = (authData) => async(dispatch) => {
 
 export const loginAction = (authData) => async(dispatch) => {
     try {
-        const {data} = await axios.post('https://stackprojectbe.onrender.com/login', authData)
+        const {data} = await axios.post(`${process.env.REACT_APP_API_URL}/login`, authData)
 
         dispatch({type:'LOGIN', payload: data})
 
