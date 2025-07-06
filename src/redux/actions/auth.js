@@ -21,7 +21,7 @@ export const loginAction = (authData) => async(dispatch) => {
         const {data} = await axios.post(`${process.env.REACT_APP_API_URL}/login`, authData)
 
         dispatch({type:'LOGIN', payload: data})
-
+        localStorage.setItem("auth", JSON.stringify(data));
         window.location = '/'
     } catch (error) {
         toast(error.response.data.msg, {
