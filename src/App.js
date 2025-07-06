@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link} from 'react-router-dom'
+import { BrowserRouter, Navigate, Routes, Route, Link} from 'react-router-dom'
 import { ToastContainer} from 'react-toastify';
 import useToken from './hooks/useToken';
 import Navbar from './components/Navbar';
@@ -21,7 +21,7 @@ function App() {
       {token?.token && <Navbar/>}
       {modal && <Modal/>}
         <Routes>
-          <Route path="/" element={!token?.token ? <Link to={'/auth'} /> : <Home />} />
+          <Route path="/" element={!token?.token ? <Navigate to={'/auth'} /> : <Home />} />
           <Route path="/auth" element={<Auth />} />
         </Routes>
       </BrowserRouter>
