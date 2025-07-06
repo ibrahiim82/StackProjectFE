@@ -21,7 +21,7 @@ function App() {
       {token?.token && <Navbar/>}
       {modal && <Modal/>}
         <Routes>
-          <Route path="/" element={!token?.token ? <Navigate to={'/auth'} /> : <Home />} />
+          <Route path="/" element={!token?.token ? <Navigate to="/auth" replace /> : <Home />} />
           <Route path="/auth" element={<Auth />} />
         </Routes>
       </BrowserRouter>
@@ -29,5 +29,7 @@ function App() {
     </div>
   );
 }
+
+{/* <Route path="/" element={!token?.token ? <Navigate to={'/auth'} /> : <Home />} /> */}
 
 export default App;
